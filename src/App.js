@@ -13,17 +13,20 @@ function App() {
   }, []);
   return (
     <div>
-      <h1>The Coins!</h1>
-      {loading ? <strong>Loading...</strong> : null}
-      <ul>
-        {coins.map((coin, i) => {
-          return (
-            <li key={i}>
-              {coin.name} ({coin.symbol}) : {coin.quotes.USD.price} USD
-            </li>
-          );
-        })}
-      </ul>
+      <h1>The Coins! {loading ? null : `(${coins.length})`} </h1>
+      {loading ? (
+        <strong>Loading...</strong>
+      ) : (
+        <select>
+          {coins.map((coin, i) => {
+            return (
+              <option key={i}>
+                {coin.name} ({coin.symbol}) : {coin.quotes.USD.price} USD
+              </option>
+            );
+          })}
+        </select>
+      )}
     </div>
   );
 }
