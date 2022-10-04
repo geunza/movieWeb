@@ -25,12 +25,12 @@ function Detail() {
         <h1>Loading...</h1>
       ) : (
         <div>
+          <h2 className={styles.detail__title}>{details.title}</h2>
           <img
             className={styles.detail__img}
             src={details.large_cover_image}
             alt={details.title}
           />
-          <h2 className={styles.detail__title}>{details.title}</h2>
           <p className={styles.detail__summary}>{details.description_full}</p>
           <ul className={styles.detail__genres}>
             {details.genres.map((x) => (
