@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
+import styles from "./Detail.module.css";
 function Detail() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -19,24 +20,23 @@ function Detail() {
   }, []);
   console.log(details);
   return (
-    <div>
+    <div className={styles.detail}>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
         <div>
-          <img src={details.large_cover_image} alt={details.title} />
-          <h2>{details.title}</h2>
-          <p
-            onClick={() => {
-              setDesc((prev) => !prev);
-            }}
-          >
-            {desc
-              ? details.description_intro
-              : details.genres.map((v) => {
-                  return <div>{v}</div>;
-                })}
-          </p>
+          <img
+            className={styles.detail__img}
+            src={details.large_cover_image}
+            alt={details.title}
+          />
+          <h2 className={styles.detail__title}>{details.title}</h2>
+          <p className={styles.detail__summary}>{details.description_full}</p>
+          <ul className={styles.detail__genres}>
+            {details.genres.map((x) => (
+              <li>{x}</li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

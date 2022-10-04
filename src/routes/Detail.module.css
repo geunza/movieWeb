@@ -1,0 +1,15 @@
+.detail {
+  width: 80%;
+  margin: auto;
+}
+.detail__img {
+  display: block;
+  margin: auto;
+}
+.detail__title {
+  font-weight: 500;
+}
+.detail__summary {
+}
+.detail__genres {
+}
